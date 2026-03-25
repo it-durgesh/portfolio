@@ -2,11 +2,7 @@ import { withContentCollections } from "@content-collections/next";
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: 'export', // Enables static exports
   reactStrictMode: true,
-  images: {
-    unoptimized: true, // Required for static export
-  },
   async headers() {
     return [
       {

@@ -1,38 +1,27 @@
  
 import { ImageResponse } from "next/og";
-import { allPosts } from "content-collections";
 import { DATA } from "@/data/resume";
-import { readFileSync } from 'fs';
-import { join } from 'path';
 
-// export const runtime = "edge";
-export const dynamic = "force-static";
+export const runtime = "edge";
+
 export const alt = "Blog";
 export const size = {
     width: 1200,
     height: 630,
 };
 export const contentType = "image/png";
-// 2. Define which slugs to generate at build time
-export async function generateStaticParams() {
-    return allPosts.map((post) => ({
-        slug: post._meta.path.replace(/\.mdx$/, ""),
-    }));
-}
 
-const getFontData = () => {
+const getFontData = async () => {
     try {
-        const cabinetData = readFileSync(
-                    join(process.cwd(), "public/fonts/CabinetGrotesk-Medium.ttf")
-                );
-                const clashData = readFileSync(
-                    join(process.cwd(), "public/fonts/ClashDisplay-Semibold.ttf")
-                );
-                
-                return { 
-                    cabinetGrotesk: cabinetData.buffer, 
-                    clashDisplay: clashData.buffer 
-                };
+        const [cabinetGrotesk, clashDisplay] = await Promise.all([
+            fetch(
+                new URL("../../../public/fonts/CabinetGrotesk-Medium.ttf", import.meta.url)
+            ).then((res) => res.arrayBuffer()),
+            fetch(
+                new URL("../../../public/fonts/ClashDisplay-Semibold.ttf", import.meta.url)
+            ).then((res) => res.arrayBuffer()),
+        ]);
+        return { cabinetGrotesk, clashDisplay };
     } catch (error) {
         console.error("Failed to load fonts:", error);
         return null;
@@ -132,7 +121,7 @@ export default async function Image() {
                         <div style={styles.wrapper}>
                             {imageUrl && (
                                 <div style={styles.imageSection}>
-                                    <img src={imageUrl} alt="Blog" style={styles.image} width={140} height={140} />
+                                    <img src={imageUrl} alt="Blog" style={styles.image} />
                                 </div>
                             )}
                             <div style={styles.mainContainer}>
