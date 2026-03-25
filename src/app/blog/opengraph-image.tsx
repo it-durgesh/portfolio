@@ -132,7 +132,7 @@ export default async function Image() {
                         <div style={styles.wrapper}>
                             {imageUrl && (
                                 <div style={styles.imageSection}>
-                                    <img src={imageUrl} alt="Blog" style={styles.image} />
+                                    <img src={imageUrl} alt="Blog" style={styles.image} width={140} height={140} />
                                 </div>
                             )}
                             <div style={styles.mainContainer}>

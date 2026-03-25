@@ -13,7 +13,7 @@
     "lint": "eslint",
     "lint:fix": "eslint --fix",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "deploy": "next build && gh-pages -d out"
   },
   "dependencies": {
     "@content-collections/mdx": "^0.2.2",
