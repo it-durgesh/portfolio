@@ -5,4 +5,4 @@
 :HL["/FrAgnel.jpg","image"]
 :HL["/SA.png","image"]
 :HL["https://pub-83c5db439b40468498f97946200806f7.r2.dev/hackline/space-apps.png","image"]
-0:{"buildId":"80fv2tE9iq2c4Utm-H_nI","tree":{"name":"","paramType":null,"paramKey":"","hasRuntimePrefetch":false,"slots":{"children":{"name":"__PAGE__","paramType":null,"paramKey":"__PAGE__","hasRuntimePrefetch":false,"slots":null,"isRootLayout":false}},"isRootLayout":true},"staleTime":300}
+0:{"buildId":"q0bbg5GpTh8AJHfLS77Tf","tree":{"name":"","paramType":null,"paramKey":"","hasRuntimePrefetch":false,"slots":{"children":{"name":"__PAGE__","paramType":null,"paramKey":"__PAGE__","hasRuntimePrefetch":false,"slots":null,"isRootLayout":false}},"isRootLayout":true},"staleTime":300}
